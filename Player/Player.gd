@@ -1,4 +1,4 @@
-extends KinematicBody
+ extends KinematicBody
 
 onready var Camera = $Pivot/Camera
 
