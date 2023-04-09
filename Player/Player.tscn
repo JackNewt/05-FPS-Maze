@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Player/Gun.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -25,3 +26,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
 current = true
+
+[node name="Gun" parent="Pivot/Camera" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.900453, -0.375116, -1.15651 )
+
+[node name="Reload" type="Timer" parent="Pivot/Camera/Gun"]
+wait_time = 2.0
+one_shot = true
+
+[node name="RayCast" type="RayCast" parent="Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+enabled = true
+cast_to = Vector3( 0, 0, -30 )
+
+[connection signal="timeout" from="Pivot/Camera/Gun/Reload" to="." method="_on_Reload_timeout"]

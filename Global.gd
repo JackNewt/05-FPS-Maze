@@ -2,6 +2,7 @@ extends Node
 
 var menu = null
 
+
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 
@@ -18,3 +19,5 @@ func _unhandled_input(_event):
 				get_tree().paused = false
 				menu.hide()
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
