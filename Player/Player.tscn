@@ -34,6 +34,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.900453, -0.375116, -1.15651 
 wait_time = 2.0
 one_shot = true
 
+[node name="Tween" type="Tween" parent="Pivot/Camera/Gun"]
+
 [node name="RayCast" type="RayCast" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
 enabled = true

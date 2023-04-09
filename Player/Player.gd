@@ -46,6 +46,14 @@ func _physics_process(delta):
 	velocity.z = desired_velocity.z
 	velocity = move_and_slide(velocity, Vector3.UP, true)
 	
+	if Input.is_action_just_pressed("reload"):
+		if reloading == 0:
+			Global.ammo = -1
+			$Pivot/Camera/Gun/Reload.start()
+			$Pivot/Camera/Gun.reload()
+			print("reloading")
+			reloading = 1
+			
 	if Input.is_action_just_pressed("shoot"):
 		if Global.ammo > 0:
 			Global.ammo -= 1
@@ -58,6 +66,7 @@ func _physics_process(delta):
 			if reloading == 0:
 				Global.ammo -= 1
 				$Pivot/Camera/Gun/Reload.start()
+				$Pivot/Camera/Gun.reload()
 				print("reloading")
 				reloading = 1
 

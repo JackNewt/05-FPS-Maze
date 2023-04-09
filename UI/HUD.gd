@@ -15,3 +15,4 @@ func _physics_process(_delta):
 		$Health.text = "You Ded"
 	else:
 		$Health.text = str(Global.health) + " HP"
+

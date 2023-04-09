@@ -8,7 +8,7 @@
 script = ExtResource( 3 )
 
 [node name="Idle" type="Sprite3D" parent="."]
-transform = Transform( 0.983108, -0.183025, 0, 0.183025, 0.983108, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 0, 0, 0 )
 pixel_size = 0.001
 texture = ExtResource( 1 )
 
@@ -22,4 +22,11 @@ texture = ExtResource( 2 )
 wait_time = 0.1
 one_shot = true
 
+[node name="Tween" type="Tween" parent="."]
+
+[node name="SpinTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="SpinTimer" to="." method="_on_SpinTimer_timeout"]

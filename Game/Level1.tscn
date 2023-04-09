@@ -295,8 +295,11 @@ transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -40, 0, 0
 [node name="Enemy" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24, 0.183957, 0 )
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="UI" instance=ExtResource( 8 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 8 )]
+mouse_filter = 2
+
+[node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Menu" parent="UI" instance=ExtResource( 5 )]
