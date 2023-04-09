@@ -2,14 +2,14 @@
 
 onready var Camera = $Pivot/Camera
 
-var ammo = 6
+
 var reloading = 0
 
 var gravity = -30
 var max_speed = 8
 var mouse_sensitivity = 0.002
 var mouse_range = 1.2
-var health = 10
+
 onready var rc = $Pivot/RayCast
 
 func _ready():
@@ -46,23 +46,23 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector3.UP, true)
 	
 	if Input.is_action_just_pressed("shoot"):
-		if ammo != 0:
-			ammo -= 1
-			print(ammo)
+		if Global.ammo > 0:
+			Global.ammo -= 1
 			$Pivot/Camera/Gun.shoot()
 			if rc.is_colliding():
 				var c = rc.get_collider()
 				if c.name == "Enemy":
 					c.damage(5)
-		elif ammo == 0:
+		elif Global.ammo <= 0:
 			if reloading == 0:
+				Global.ammo -= 1
 				$Pivot/Camera/Gun/Reload.start()
 				print("reloading")
 				reloading = 1
 
 func damage(d):
-	health -= d
-	if health <= 0:
+	Global.health -= d
+	if Global.health <= 0:
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Menus/Main_Menu.tscn")
 
@@ -71,5 +71,5 @@ func damage(d):
 
 
 func _on_Reload_timeout():
-	ammo = 6
+	Global.ammo = 6
 	reloading = 0
