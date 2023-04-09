@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Anton-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Anton-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 43
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 2 )
 
 [node name="Menu" type="Control"]
 pause_mode = 2
@@ -15,23 +27,28 @@ anchor_bottom = 1.0
 color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
 
 [node name="Quit" type="Button" parent="."]
-margin_left = 462.0
-margin_top = 400.0
-margin_right = 562.0
-margin_bottom = 440.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 29.0
+margin_right = 100.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.362
-anchor_right = 0.502
-anchor_bottom = 0.362
-margin_left = -162.0
-margin_top = -14.2
-margin_right = -0.0480347
-margin_bottom = -0.200012
-rect_scale = Vector2( 2, 2 )
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -258.0
+margin_top = -95.0
+margin_right = 778.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 3 )
 text = "(Press Escape to Resume)"
-align = 1
 
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

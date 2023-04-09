@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Key/key.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Exit/Exit.tscn" type="PackedScene" id=4]
-[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menus/PauseMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Wall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CubeMesh" id=5]
 size = Vector3( 100, 0.01, 50 )
@@ -288,10 +289,14 @@ light_energy = 4.0
 omni_range = 21.313
 omni_attenuation = 1.36604
 
-[node name="UI" parent="." instance=ExtResource( 5 )]
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -40, 0, 0 )
 
 [node name="Enemy" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24, 0.183957, 0 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource( 8 )]
+
+[node name="Menu" parent="UI" instance=ExtResource( 5 )]
