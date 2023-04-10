@@ -61,7 +61,7 @@ func _physics_process(delta):
 			if rc.is_colliding():
 				print("hit")
 				var c = rc.get_collider()
-				if c.name == "Enemy":
+				if c.name == "Enemy" or "Enemy2" or "Enemy3":
 					c.damage(5)
 		elif Global.ammo <= 0:
 			if reloading == 0:

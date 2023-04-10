@@ -162,7 +162,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -24 )
 
 [node name="Ceiling" type="StaticBody" parent="Maze"]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 5.9, 0 )
-visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="Maze/Ceiling"]
 mesh = SubResource( 6 )
