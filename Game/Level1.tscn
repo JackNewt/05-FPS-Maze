@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Game/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Exit/Exit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/PauseMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Wall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Game/Box.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Game/Ground.tscn" type="PackedScene" id=10]
@@ -460,6 +461,15 @@ transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 2
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -40, 0, 0 )
 
 [node name="Enemy_Container" type="Spatial" parent="."]
+
+[node name="Enemy" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.2, 4 )
+
+[node name="Enemy2" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.2, -20 )
+
+[node name="Enemy3" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.2, -13 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
