@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menus/Main_Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Anton-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/BrauMaus.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -54,6 +55,11 @@ margin_right = 100.0
 margin_bottom = 70.0
 custom_fonts/font = SubResource( 3 )
 text = "Quit"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -150, 534 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

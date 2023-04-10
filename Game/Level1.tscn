@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Game/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Game/Box.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Game/Ground.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Game/Carpet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Anton-Regular.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="CubeMesh" id=6]
 size = Vector3( 100, 0.01, 50 )
@@ -22,6 +23,18 @@ albedo_color = Color( 0.137255, 0.137255, 0.137255, 1 )
 
 [sub_resource type="ConvexPolygonShape" id=4]
 points = PoolVector3Array( -50, 0, -25, -50, 0, 25, 50, 0, -25, 50, 0, 25 )
+
+[sub_resource type="CubeMesh" id=8]
+size = Vector3( 1, 5, 3 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.223529, 0.0901961, 0.0901961, 1 )
+metallic = 1.0
+roughness = 0.46
+
+[sub_resource type="DynamicFont" id=10]
+size = 50
+font_data = ExtResource( 12 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 1 )
@@ -176,7 +189,7 @@ shape = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 1, -16 )
 
 [node name="Exit" parent="Maze" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 1, 8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.1252, 1.77294, 9 )
 
 [node name="Walls" type="Spatial" parent="Maze"]
 
@@ -366,48 +379,48 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 6, 0 )
 light_color = Color( 1, 0.72549, 0, 1 )
 light_energy = 4.0
-omni_range = 21.313
+omni_range = 10.0
 omni_attenuation = 1.36604
 
 [node name="OmniLight2" type="OmniLight" parent="Maze/Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 6, 0 )
 light_energy = 4.0
-omni_range = 21.313
+omni_range = 10.0
 omni_attenuation = 1.36604
 
 [node name="OmniLight3" type="OmniLight" parent="Maze/Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 6, 0 )
 light_color = Color( 0, 1, 0.905882, 1 )
 light_energy = 4.0
-omni_range = 21.313
+omni_range = 10.0
 omni_attenuation = 1.36604
 
 [node name="OmniLight6" type="OmniLight" parent="Maze/Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -16 )
 light_color = Color( 1, 0, 0.164706, 1 )
 light_energy = 4.0
-omni_range = 21.313
+omni_range = 10.0
 omni_attenuation = 1.36604
 
 [node name="OmniLight7" type="OmniLight" parent="Maze/Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 6, -16 )
 light_color = Color( 0.945098, 1, 0, 1 )
 light_energy = 4.0
-omni_range = 21.313
+omni_range = 10.0
 omni_attenuation = 1.36604
 
 [node name="OmniLight4" type="OmniLight" parent="Maze/Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, 8 )
 light_color = Color( 1, 0.772549, 0, 1 )
 light_energy = 4.0
-omni_range = 21.313
+omni_range = 10.0
 omni_attenuation = 1.36604
 
 [node name="OmniLight5" type="OmniLight" parent="Maze/Lights"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 6, 8 )
 light_color = Color( 0.619608, 0.619608, 0.619608, 1 )
 light_energy = 4.0
-omni_range = 21.313
+omni_range = 10.0
 omni_attenuation = 1.36604
 
 [node name="Boxes" type="Spatial" parent="Maze"]
@@ -448,6 +461,81 @@ transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926,
 [node name="Box12" parent="Maze/Boxes" instance=ExtResource( 9 )]
 transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -5.35415, 1, -12.2759 )
 
+[node name="Box16" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 6.61177, 1, -3.01704 )
+
+[node name="Box17" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 4.61177, 1, -3.01704 )
+
+[node name="Box18" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 6.61177, 3, -3.01704 )
+
+[node name="Box19" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 4.61177, 3, -3.01704 )
+
+[node name="Box20" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 10.6118, 1, -3.01704 )
+
+[node name="Box21" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 8.61177, 1, -3.01704 )
+
+[node name="Box22" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 10.6118, 3, -3.01704 )
+
+[node name="Box23" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 8.61177, 3, -3.01704 )
+
+[node name="Box28" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1.58933e-08, 0, -1, 0, 1, 0, 1, 0, -1.58933e-08, 28.6118, 1, -11.017 )
+
+[node name="Box29" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1.58933e-08, 0, -1, 0, 1, 0, 1, 0, -1.58933e-08, 28.6118, 1, -9.01704 )
+
+[node name="Box30" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1.58933e-08, 0, -1, 0, 1, 0, 1, 0, -1.58933e-08, 28.6118, 3, -11.017 )
+
+[node name="Box31" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1.58933e-08, 0, -1, 0, 1, 0, 1, 0, -1.58933e-08, 28.6118, 3, -9.01704 )
+
+[node name="Box32" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 27.6118, 1, -18.017 )
+
+[node name="Box33" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1.58933e-08, 0, -1, 0, 1, 0, 1, 0, -1.58933e-08, 28.6118, 1, -13.017 )
+
+[node name="Box34" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 27.6118, 3, -18.017 )
+
+[node name="Box35" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -1.58933e-08, 0, -1, 0, 1, 0, 1, 0, -1.58933e-08, 28.6118, 3, -13.017 )
+
+[node name="Box40" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 34.3882, 1, -21.9148 )
+
+[node name="Box41" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 33.8706, 1, -19.983 )
+
+[node name="Box42" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 34.3882, 3, -21.9148 )
+
+[node name="Box43" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 21.3882, 1, -15.9148 )
+
+[node name="Box44" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 21.3882, 3, -15.9148 )
+
+[node name="Box24" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 12.4778, 1, 3.48296 )
+
+[node name="Box25" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 10.7457, 1, 4.48296 )
+
+[node name="Box26" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 6.5777, 1, 13.2418 )
+
+[node name="Box27" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 4.64585, 1, 12.7241 )
+
 [node name="Box13" parent="Maze/Boxes" instance=ExtResource( 9 )]
 transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 3.29289, 1, -17.2753 )
 
@@ -457,19 +545,53 @@ transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 2
 [node name="Box15" parent="Maze/Boxes" instance=ExtResource( 9 )]
 transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 2.77526, 3, -19.2071 )
 
+[node name="MeshInstance" type="MeshInstance" parent="Maze"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 9 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="Label3D" type="Label3D" parent="Maze/MeshInstance"]
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, -0.50708, 1.93868, 0 )
+text = "EXIT"
+font = SubResource( 10 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -40, 0, 0 )
 
 [node name="Enemy_Container" type="Spatial" parent="."]
 
 [node name="Enemy" parent="Enemy_Container" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.2, 4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0.2, 7 )
 
 [node name="Enemy2" parent="Enemy_Container" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.2, -20 )
 
 [node name="Enemy3" parent="Enemy_Container" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.2, -13 )
+
+[node name="Enemy4" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.2, 7 )
+
+[node name="Enemy5" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.2, 9 )
+
+[node name="Enemy6" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.2, 17 )
+
+[node name="Enemy7" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0.2, -15 )
+
+[node name="Enemy11" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0.2, -13 )
+
+[node name="Enemy8" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0.2, -12 )
+
+[node name="Enemy9" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0.2, -10 )
+
+[node name="Enemy10" parent="Enemy_Container" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0.2, -10 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

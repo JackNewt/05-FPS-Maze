@@ -9,8 +9,8 @@ size = Vector3( 8, 0.1, 8 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 1 )
-metallic = 0.81
-roughness = 0.72
+metallic = 1.0
+roughness = 0.11
 uv1_scale = Vector3( 3, 2, 1 )
 
 [sub_resource type="ConvexPolygonShape" id=6]
