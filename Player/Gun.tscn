@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Gun.png" type="Texture" id=1]
 [ext_resource path="res://Assets/GunShoot.png" type="Texture" id=2]
 [ext_resource path="res://Player/Gun.gd" type="Script" id=3]
+[ext_resource path="res://Assets/wall.wav" type="AudioStream" id=4]
 
 [node name="Gun" type="Spatial"]
 script = ExtResource( 3 )
@@ -17,6 +18,11 @@ transform = Transform( 0.983108, -0.183025, 0, 0.183025, 0.983108, 0, 0, 0, 1, 0
 visible = false
 pixel_size = 0.001
 texture = ExtResource( 2 )
+
+[node name="Gunshot" type="AudioStreamPlayer" parent="Shoot"]
+stream = ExtResource( 4 )
+volume_db = -5.0
+pitch_scale = 0.4
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

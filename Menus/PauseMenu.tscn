@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Anton-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Pausk2.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Anton-Regular.ttf"
@@ -50,5 +51,8 @@ margin_bottom = 56.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 3 )
 text = "(Press Escape to Resume)"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

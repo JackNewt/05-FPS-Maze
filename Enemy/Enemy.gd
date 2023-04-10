@@ -19,8 +19,8 @@ func _physics_process(_delta):
 	if Player == null:
 		Player = get_node_or_null("/root/Game/Player")
 	if Player != null:
+		look_at(Player.global_transform.origin, Vector3.UP)
 		if found == 1: 
-			look_at(Player.global_transform.origin, Vector3.UP)
 			velocity.y += gravity
 			var desired_velocity = Vector3(Player.translation.x - translation.x, 0, Player.translation.z - translation.z)
 			
@@ -58,6 +58,8 @@ func damage(d):
 func _on_Shooting_timeout():
 	$SpotLight.show()
 	$Flash.start()
+	$Spatial/Muzzleflash.show()
+	$Gunshot.play()
 	$Reloading.start()
 	if rc.is_colliding():
 		var c = rc.get_collider()
@@ -77,5 +79,6 @@ func _on_Reloading_timeout():
 
 func _on_Flash_timeout():
 	$SpotLight.hide()
+	$Spatial/Muzzleflash.hide()
 
 

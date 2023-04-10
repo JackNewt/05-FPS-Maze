@@ -25,3 +25,7 @@ func _on_Play_pressed():
 
 func _on_Quit_pressed():
 	get_tree().quit()
+
+
+func _on_MenuMusic_finished():
+	$MenuMusic.play()

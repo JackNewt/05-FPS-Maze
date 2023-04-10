@@ -6,6 +6,7 @@ func _ready():
 	pass
 
 func shoot():
+	$Shoot/Gunshot.play()
 	$Idle.hide()
 	$Shoot.show()
 	$Timer.start()
