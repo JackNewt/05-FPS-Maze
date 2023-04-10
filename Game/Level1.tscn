@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Game/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,47 +6,168 @@
 [ext_resource path="res://Exit/Exit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/PauseMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Wall.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Game/Box.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Game/Ground.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Game/Carpet.tscn" type="PackedScene" id=11]
 
-[sub_resource type="CubeMesh" id=5]
+[sub_resource type="CubeMesh" id=6]
 size = Vector3( 100, 0.01, 50 )
 
 [sub_resource type="Skin" id=2]
 
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.235294, 0.235294, 0.235294, 1 )
-metallic = 0.81
-roughness = 0.72
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.137255, 0.137255, 0.137255, 1 )
 
 [sub_resource type="ConvexPolygonShape" id=4]
 points = PoolVector3Array( -50, 0, -25, -50, 0, 25, 50, 0, -25, 50, 0, 25 )
-
-[sub_resource type="CubeMesh" id=6]
-size = Vector3( 100, 0.01, 50 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="Maze" type="Spatial" parent="."]
 
-[node name="Ground" type="StaticBody" parent="Maze"]
+[node name="Floor" type="Spatial" parent="Maze"]
 
-[node name="MeshInstance" type="MeshInstance" parent="Maze/Ground"]
-mesh = SubResource( 5 )
-skin = SubResource( 2 )
-material/0 = SubResource( 3 )
+[node name="Ground" parent="Maze/Floor" instance=ExtResource( 10 )]
 
-[node name="CollisionShape" type="CollisionShape" parent="Maze/Ground"]
-shape = SubResource( 4 )
+[node name="Ground2" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
+
+[node name="Ground3" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+
+[node name="Ground4" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8 )
+
+[node name="Ground5" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16 )
+
+[node name="Ground6" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 16 )
+
+[node name="Ground7" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 8 )
+
+[node name="Ground8" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8 )
+
+[node name="Ground13" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0 )
+
+[node name="Ground14" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
+
+[node name="Ground15" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -8 )
+
+[node name="Ground16" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8 )
+
+[node name="Ground17" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 16 )
+
+[node name="Ground18" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 16 )
+
+[node name="Ground19" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 8 )
+
+[node name="Ground20" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 8 )
+
+[node name="Ground21" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0 )
+
+[node name="Ground22" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0 )
+
+[node name="Ground23" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -8 )
+
+[node name="Ground24" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -8 )
+
+[node name="Ground9" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
+
+[node name="Ground10" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
+
+[node name="Ground11" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -8 )
+
+[node name="Ground12" parent="Maze/Floor" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -8 )
+
+[node name="Carpet" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
+
+[node name="Carpet2" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
+
+[node name="Carpet3" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -8 )
+
+[node name="Carpet4" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8 )
+
+[node name="Carpet5" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -16 )
+
+[node name="Carpet6" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16 )
+
+[node name="Carpet7" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -24 )
+
+[node name="Carpet8" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24 )
+
+[node name="Carpet9" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -16 )
+
+[node name="Carpet10" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -16 )
+
+[node name="Carpet11" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -24 )
+
+[node name="Carpet12" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -24 )
+
+[node name="Carpet13" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -16 )
+
+[node name="Carpet14" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -16 )
+
+[node name="Carpet15" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -24 )
+
+[node name="Carpet16" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -24 )
+
+[node name="Carpet17" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -16 )
+
+[node name="Carpet18" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -16 )
+
+[node name="Carpet19" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -24 )
+
+[node name="Carpet20" parent="Maze/Floor" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -24 )
 
 [node name="Ceiling" type="StaticBody" parent="Maze"]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 5.9, 0 )
+visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="Maze/Ceiling"]
 mesh = SubResource( 6 )
 skin = SubResource( 2 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Maze/Ceiling"]
 shape = SubResource( 4 )
@@ -289,11 +410,57 @@ light_energy = 4.0
 omni_range = 21.313
 omni_attenuation = 1.36604
 
+[node name="Boxes" type="Spatial" parent="Maze"]
+
+[node name="Box" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -26, 1, 3.41421 )
+
+[node name="Box2" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -27.4142, 1, 2 )
+
+[node name="Box4" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -27.4142, 3, 2 )
+
+[node name="Box3" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -26, 1, 0.585785 )
+
+[node name="Box5" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -19.634, 1, -3.36603 )
+
+[node name="Box6" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -20.634, 1, -1.63398 )
+
+[node name="Box7" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -20.634, 3, -1.63398 )
+
+[node name="Box8" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -22.366, 1, -2.63398 )
+
+[node name="Box9" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -2.90466, 1, -13.6901 )
+
+[node name="Box10" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -3.4223, 1, -11.7582 )
+
+[node name="Box11" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -3.4223, 3, -11.7582 )
+
+[node name="Box12" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -5.35415, 1, -12.2759 )
+
+[node name="Box13" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 3.29289, 1, -17.2753 )
+
+[node name="Box14" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 2.77526, 1, -19.2071 )
+
+[node name="Box15" parent="Maze/Boxes" instance=ExtResource( 9 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 2.77526, 3, -19.2071 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -40, 0, 0 )
 
-[node name="Enemy" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24, 0.183957, 0 )
+[node name="Enemy_Container" type="Spatial" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -303,3 +470,5 @@ mouse_filter = 2
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Menu" parent="UI" instance=ExtResource( 5 )]
+
+[editable path="Maze/Floor/Ground12"]

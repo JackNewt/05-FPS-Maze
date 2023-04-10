@@ -3,6 +3,7 @@ extends Node
 var menu = null
 var ammo = 6
 var health = 10
+var score = 0
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS

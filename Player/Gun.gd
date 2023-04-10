@@ -26,7 +26,6 @@ func _physics_process(_delta):
 		if $Idle.translation.y > -1.5:
 			$Idle.translation.y -= .05
 	if spin == 0:
-		print ($Idle.translation.y)
 		if $Idle.rotation_degrees.z < 10:
 			$Idle.rotation_degrees.z += 1
 		if $Idle.rotation_degrees.z > 10:

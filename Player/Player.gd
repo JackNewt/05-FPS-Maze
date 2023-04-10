@@ -59,6 +59,7 @@ func _physics_process(delta):
 			Global.ammo -= 1
 			$Pivot/Camera/Gun.shoot()
 			if rc.is_colliding():
+				print("hit")
 				var c = rc.get_collider()
 				if c.name == "Enemy":
 					c.damage(5)
@@ -67,14 +68,13 @@ func _physics_process(delta):
 				Global.ammo -= 1
 				$Pivot/Camera/Gun/Reload.start()
 				$Pivot/Camera/Gun.reload()
-				print("reloading")
 				reloading = 1
 
 func damage(d):
 	Global.health -= d
 	if Global.health <= 0:
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://Menus/Main_Menu.tscn")
+		get_tree().change_scene("res://Menus/End_Screen.tscn")
 
 
 

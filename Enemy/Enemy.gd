@@ -19,5 +19,8 @@ func _on_Area_body_entered(body):
 		
 func damage(d):
 	health -= d
+	print(health)
 	if health <= 0:
+		Global.score += 100
 		queue_free()
+		

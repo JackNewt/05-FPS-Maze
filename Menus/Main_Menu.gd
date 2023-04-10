@@ -13,6 +13,9 @@ func _ready():
 
 
 func _on_Play_pressed():
+	Global.health = 10
+	Global.ammo = 6
+	Global.score = 0 
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Game/Level1.tscn")
 
